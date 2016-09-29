@@ -10,9 +10,9 @@ var LibraryEntryView = Backbone.View.extend({
       //if (!player.paused && player.duration > 0) {
         //console.log(this);
       //if (false) {
-        console.log('triggering enqueue');
-        this.model.enqueue();
-        //this.model.play();
+      console.log('triggering enqueue ',evt);
+      this.model.enqueue();
+      this.model.play();
       //} else {
         //this.model.play();
       //}
