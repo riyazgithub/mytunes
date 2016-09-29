@@ -31,6 +31,13 @@ describe('LibraryView', function() {
     expect(view.$el.children().length).to.equal(2);
     expect(view.$el.children()[0].tagName).to.equal('TH');
   });
+
+  it('should have same library size when a song is queued', function() {
+    view = new LibraryView({ collection: fakeSongs });
+    expect(view.$el.children().length).to.equal(2);
+    view.$el.children().children()[0].click();
+    expect(view.$el.children().length).to.equal(2);
+  });
   
   describe('when fetching song data from Parse', function() {
     var fakeResponse, requests, xhr;

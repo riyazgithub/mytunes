@@ -31,6 +31,21 @@ describe('PlayerView', function() {
     expect(appView.playerView.model).to.equal(library.at(0));
   });
 
+  it('Song stops playing if the current song queue becomes empty', function() {
+    var songQueue = appView.model.get('songQueue');
+    var firstSong = library.at(0);
+    var secondSong = library.at(1);
+    //songQueue.add(firstSong);
+    //songQueue.add(secondSong);
+    firstSong.enqueue();
+    secondSong.enqueue();
+    appView.model.get('songQueue').playFirst();
+    appView.playerView.el.play();
+    firstSong.dequeue();
+    secondSong.dequeue();
+    expect(appView.playerView.el.paused).to.be.true;
+  });
+
   it('dequeues a song when finished playing & plays the next song', function() {
     var firstSong = library.at(0);
     var secondSong = library.at(1);
