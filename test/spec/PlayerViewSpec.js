@@ -41,6 +41,7 @@ describe('PlayerView', function() {
     secondSong.enqueue();
     appView.model.get('songQueue').playFirst();
     appView.playerView.el.play();
+    debugger;
     firstSong.dequeue();
     secondSong.dequeue();
     expect(appView.playerView.el.paused).to.be.true;

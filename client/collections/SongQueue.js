@@ -7,6 +7,7 @@ var SongQueue = Backbone.Collection.extend({
     this.on('dequeue', function(song) {
       this.remove(song);
       if (this.length > 0) this.playFirst();
+      if (this.length === 0) if ($('audio')[0]) $('audio')[0].pause();
     }, this);
 
     this.on('ended', function(song) {
